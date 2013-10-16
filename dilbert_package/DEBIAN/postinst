@@ -3,4 +3,5 @@
 echo -n "Enter the username for your ruby environment: "
 read ruby_user
 [[ $ruby_user ]] || ruby_user=root
+chown -R $ruby_user /usr/lib/dilbert-tickets
 su - $ruby_user -c "cd /usr/lib/dilbert-tickets && bundle install"
