@@ -1,0 +1,3 @@
+#!/bin/bash
+
+MONGOID_ENV=production bundle exec ruby ../lib/dilbert_main.rb $*
