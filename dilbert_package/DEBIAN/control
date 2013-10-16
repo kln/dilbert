@@ -1,6 +1,6 @@
 Package: dilbert-tickets
 Version: 0.1
-Architecture: any
+Architecture: all
 Maintainer: pelgrim<guskald@gmail.com>
 Installed-Size: 16
 Depends: 
