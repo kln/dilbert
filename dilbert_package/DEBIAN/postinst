@@ -1,6 +1,6 @@
 #!/bin/bash
 
 echo -n "Enter the username for your ruby environment: "
-read $ruby_user
+read ruby_user
 [[ $ruby_user ]] || ruby_user=root
 su - $ruby_user -c "cd /usr/lib/dilbert-tickets && bundle install"
