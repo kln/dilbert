@@ -1,0 +1,12 @@
+Package: dilbert-tickets
+Version: 0.1
+Architecture: any
+Maintainer: pelgrim<guskald@gmail.com>
+Installed-Size: 16
+Depends: 
+Recommends:
+Conflicts:
+Section: extra
+Priority: extra
+Description: Dilbert
+ Simple ticket tracker using Ruby and MongoDB.
