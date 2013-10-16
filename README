@@ -10,9 +10,9 @@ Requirements
 Installation (most simple)
 ==========================
 
-1. Install the required gems
+1. Install the Bundler gem
 
-$ gem install mongoid trollop
+$ gem install bundler
 
 2. Download the deb package
 
