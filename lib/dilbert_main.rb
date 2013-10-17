@@ -1,6 +1,5 @@
 $:.unshift File.dirname(__FILE__)
 require 'trollop'
-require 'pry'
 load 'ticket.rb'
 
 opts = Trollop::options do
@@ -46,5 +45,3 @@ unless opts[:tags].nil?
   opts[:tags].each { |tag| ticket.tags.create(tag_name: tag) }
   ticket.save!
 end
-
-binding.pry
