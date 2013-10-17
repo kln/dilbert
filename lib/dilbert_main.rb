@@ -38,7 +38,7 @@ end
 
 ticket = Ticket.new
 ticket.level = opts[:level]
-ticket.place = opts[:place]
+ticket.place.place_code = opts[:place]
 ticket.save!
 
 unless opts[:tags].nil?
