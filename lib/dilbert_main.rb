@@ -32,7 +32,10 @@ unless opts[:drop_place].nil?
 end
 
 
-puts "You must inform a place!" and exit if opts[:place].nil?
+if opts[:place].nil?
+  puts "You must inform a place!"
+  exit
+end
 
 ticket = Ticket.new
 ticket.level = opts[:level]
