@@ -14,3 +14,9 @@ class Tag
   field :tag_name, type: String
   embedded_in :ticket
 end
+
+class Places
+  include Mongoid::Document
+  field :place_code, type: Integer
+  field :place_description, type: String
+end
