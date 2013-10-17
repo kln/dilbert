@@ -1,4 +1,4 @@
-dilbert is a simple command-line program intended to track tickets in a small it environment.
+dilbert is a simple command-line program intended to track tickets in a small (and by small, right now, I mean ONLY one user XD) IT environment.
 
 Requirements
 ============
