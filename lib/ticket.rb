@@ -5,18 +5,19 @@ Mongoid.load!("#{File.dirname(__FILE__)}/mongoid.yml")
 class Ticket
   include Mongoid::Document
   field :level, type: Integer
-  field :place, type: Integer
-  embeds_many :tags
+  has_many :tags
+  has_one :place
 end
 
 class Tag
   include Mongoid::Document
   field :tag_name, type: String
-  embedded_in :ticket
+  belongs_to :ticket
 end
 
-class Places
+class Place
   include Mongoid::Document
   field :place_code, type: Integer
   field :place_description, type: String
+  belongs_to :ticket
 end
