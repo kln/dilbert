@@ -13,18 +13,18 @@ opts = Trollop::options do
   opt :drop_place, "Remove a place", type: :integer
 end
 
-unless opts[:add_place].nil?
+if opts[:add_place]
   create_place opts[:add_place]
   exit
 end
 
-unless opts[:drop_place].nil?
+if opts[:drop_place]
   remove_place opts[:drop_place]
   exit
 end
 
-unless opts[:list_places].nil?
-  list_places opts[:list_places]
+if opts[:list_places]
+  list_places
   exit
 end
 
