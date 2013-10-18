@@ -1,5 +1,4 @@
 $:.unshift File.dirname(__FILE__)
-require 'pry'
 
 module Dilbert
 
@@ -74,4 +73,3 @@ module Dilbert
 
 end
 
-binding.pry

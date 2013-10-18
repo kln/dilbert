@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cd ../lib/dilbert-tickets/
+cd `dirname $0`/../lib/dilbert-tickets/
 MONGOID_ENV=production bundle exec ruby dilbert_main.rb $*
