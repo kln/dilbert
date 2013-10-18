@@ -1,6 +1,0 @@
-production:
-  sessions:
-    default:
-      database: dilbert
-      hosts:
-        - localhost:27017
