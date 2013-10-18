@@ -1,4 +1,6 @@
 $:.unshift File.dirname(__FILE__)
+require 'pry'
+
 module Dilbert
 
   load 'ticket.rb'
@@ -15,28 +17,18 @@ module Dilbert
     ticket.save!
   end
 
-  def list_tickets_by_place
-    places = {}
-    Place.all.find_all.each do |place|
-      places[place.place_description] = Ticket.where(place_id: place._id).count
-    end
-    places.sort_by { |key,value| value }.reverse.each do |key,value|
-      puts "#{key}: #{value}"
-    end
+  def list_tickets
   end
 
   def count_tickets
   end
 
-  def list_tags
-    tags = {}
-    Tag.all.find_all.each do |tag|
-      tags[tag.tag_name] = tag.ticket_ids.count
+  def list_tags(tag_name)
+    tags = []
+    Tags.all.find_all.each do |tag|
+      tags << {tag_name => ticket_ids.count}
     end
-    tags.sort_by { |key,value| value }.reverse.each do |key,value|
-      puts "#{key}: #{value}"
-    end
-
+    tags
   end
 
 
@@ -86,3 +78,5 @@ module Dilbert
   end
 
 end
+
+binding.pry

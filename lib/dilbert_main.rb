@@ -11,32 +11,21 @@ opts = Trollop::options do
   opt :list_places, "List places."
   opt :add_place, "Add a new place", short: '-a', type: :strings
   opt :drop_place, "Remove a place", type: :integer
-  opt :list_tags, "List tags, sorted by ticket occurrence."
-  opt :list_tickets_by_place, "List places, sorted by ticket occurrence."
+  opt :list_tags, "List tags sorted by occurrence."
 end
 
-if opts[:add_place]
-  create_place opts[:add_place].join(" ")
+unless opts[:add_place].nil?
+  create_place opts[:add_place]
   exit
 end
 
-if opts[:drop_place]
+unless opts[:drop_place].nil?
   remove_place opts[:drop_place]
   exit
 end
 
-if opts[:list_places]
-  list_places
-  exit
-end
-
-if opts[:list_tags]
-  list_tags
-  exit
-end
-
-if opts[:list_tickets_by_place]
-  list_tickets_by_place
+unless opts[:list_places].nil?
+  list_places opts[:list_places]
   exit
 end
 
