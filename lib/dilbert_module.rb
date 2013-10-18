@@ -1,4 +1,5 @@
 $:.unshift File.dirname(__FILE__)
+require 'pry'
 
 module Dilbert
 
@@ -6,8 +7,7 @@ module Dilbert
 
   def create_ticket(params)
     return false unless check_place params[:place]
-    ticket = Ticket.new
-    ticket.level = params[:level]
+    ticket = Ticket.create(level: params[:level])
     ticket.place = Place.find_by(place_code: params[:place])
     unless params[:tags].nil?
       params[:tags].each do |tag|
@@ -42,16 +42,36 @@ module Dilbert
     return true
   end
 
-  def include_place(place_code,place_description)
+  def create_place(place_description)
+    if Place.count == 0
+      next_place_code =  1
+    else
+      next_place_code = Place.last.place_code + 1
+    end
+    Place.create!(
+      place_description: place_description,
+      place_code: next_place_code)
+  end
+
+  def edit_place(place_code,place_description)
+    Place.where(place_code: place_code).update(place_description: place_description)
   end
 
   def remove_place(place_code)
+    Place.where(place_code: place_code).delete
   end
 
   def list_places
+    Place.all.find_all.each do |place|
+      puts "#{place.place_code}: #{place.place_description}"
+    end
   end
 
-  def list_places(place_code)
+  def list_place(place_code)
+    place = Place.find_by(place_code: place_code)
+    puts "#{place.place_code}: #{place.place_description}"
   end
 
 end
+
+binding.pry
