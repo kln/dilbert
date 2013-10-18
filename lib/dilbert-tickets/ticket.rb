@@ -5,6 +5,7 @@ Mongoid.load!("#{File.dirname(__FILE__)}/mongoid.yml")
 class Ticket
   include Mongoid::Document
   field :level, type: Integer
+  field :created_at, type: Time
   has_and_belongs_to_many :tags
   belongs_to :place
 end

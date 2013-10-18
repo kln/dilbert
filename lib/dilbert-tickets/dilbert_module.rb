@@ -5,7 +5,7 @@ module Dilbert
 
   def create_ticket(params)
     return false unless check_place params[:place]
-    ticket = Ticket.create(level: params[:level])
+    ticket = Ticket.create(level: params[:level], created_at: Time.now)
     ticket.place = Place.find_by(place_code: params[:place])
     unless params[:tags].nil?
       params[:tags].each do |tag|
