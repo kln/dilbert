@@ -1,7 +1,6 @@
 $:.unshift File.dirname(__FILE__)
 module Dilbert
-require 'pry'
-  load 'ticket.rb'
+load 'ticket.rb'
 
   def create_ticket(params)
     return false unless check_place params[:place]
@@ -85,4 +84,3 @@ def list_tags
   end
 
 end
-binding.pry
