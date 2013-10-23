@@ -1,7 +1,6 @@
 $:.unshift File.dirname(__FILE__)
 module Dilbert
-
-  load 'ticket.rb'
+load 'ticket.rb'
 
   def create_ticket(params)
     return false unless check_place params[:place]
@@ -15,30 +14,29 @@ module Dilbert
     ticket.save!
   end
 
+
   def list_tickets_by_place
     places = {}
     Place.all.find_all.each do |place|
-      places[place.place_description] = Ticket.where(place_id: place._id).count
+      places[Ticket.where(place_id: place._id).count] = place.place_description
     end
-    places.sort_by { |key,value| value }.reverse.each do |key,value|
-      puts "#{key}: #{value}"
+    places.sort.reverse.each do |k,v|
+      puts "#{v} : #{k}"
     end
   end
 
   def count_tickets
   end
 
-  def list_tags
+def list_tags
     tags = {}
     Tag.all.find_all.each do |tag|
       tags[tag.tag_name] = tag.ticket_ids.count
     end
-    tags.sort_by { |key,value| value }.reverse.each do |key,value|
-      puts "#{key}: #{value}"
+    tags.sort.reverse.each do |k,v|
+      puts "#{k} : #{v}"
     end
-
   end
-
 
   def check_place(place_code)
 
