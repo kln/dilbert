@@ -31,7 +31,7 @@ load 'ticket.rb'
 def list_tags
     tags = {}
     Tag.all.find_all.each do |tag|
-      tags[tag.tag_name] = tag.ticket_ids.count
+      tags[tag.ticket_ids.count] = tag.tag_name
     end
     tags.sort.reverse.each do |k,v|
       puts "#{k} : #{v}"
